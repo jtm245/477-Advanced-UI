@@ -3,9 +3,9 @@ $(function (){
 	$.ajax({
 		type: 'GET',
 		url: 'api.php',
-		success: function(orders) {
-			$.each(orders, function(i, order) {
-				$table-striped.append('<tr>
+		success: function(data) {
+			$.each(data, function(i, order) {
+				$table.append('<tr>
 										<td>'+order.table+'</td>
 										<td>'+order.name+'</td>
 										<td>'+order.drinkOrder+'</td>
