@@ -1,21 +1,18 @@
 <?php 
+  #f
+  $hostname = "tund.cefns.nau.edu";
+  $username = "yz82";
+  $password = "Qm2C4beRDCr89QYJ";
 
-  //--------------------------------------------------------------------------
-  // Example php script for fetching data from mysql database
-  //--------------------------------------------------------------------------
-  $host = "tund.cefns.nau.edu";
-  $user = "yz82";
-  $pass = "Qm2C4beRDCr89QYJ";
-
-  $databaseName = "yz82";
+  $database = "orders";
   $tableName = "orders";
 
   //--------------------------------------------------------------------------
   // 1) Connect to mysql database
   //--------------------------------------------------------------------------
-  include 'DB.php';
+  mysql_connect($host,$user,$pass);
   $con = mysql_connect($host,$user,$pass);
-  $dbs = mysql_select_db($databaseName, $con);
+  mysql_select_db($databaseName);
 
   //--------------------------------------------------------------------------
   // 2) Query database for data
