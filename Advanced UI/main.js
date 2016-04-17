@@ -2,12 +2,20 @@ $(function (){
 
 	$.ajax({
 		type: 'GET',
-		url: '/orders/orders.json',
-		success: function(data) {
+		url: 'api.php',
+		success: function(orders) {
 			$.each(orders, function(i, order) {
-				$orders.append('<li>name: '+order.name+', drink: '+order.drink+'</li>');
+				$table-striped.append('<tr>
+										<td>'+order.table+'</td>
+										<td>'+order.name+'</td>
+										<td>'+order.drinkOrder+'</td>
+										<td>'+order.status+'</td>
+										<td>'+order.timeIn+'</td>
+										<td>'+order.pickDrop+'</td>
+										</tr>');
 
 			});
 		}
 	});
 });
+
