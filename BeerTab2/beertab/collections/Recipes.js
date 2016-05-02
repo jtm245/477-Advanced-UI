@@ -9,7 +9,24 @@ Recipes.allow({
 Ingredient = new SimpleSchema({
     name: {
         type: String,
-        label: "Drink Order:"
+        label: "Drink Order:",
+        allowedValues: ["Bud (16oz)","Bud (24oz)","House Margarita","Cadillac Margarita",
+                        "Jack/Coke (Short)","Jack/Coke (Tall)","Whiskey Sour (Short)",
+                        "Whiskey Sour (Tall)","Tequila (Shot)","Rum (Shot)"],
+        autoform: {
+            options: [
+                {label: "Bud - 16oz", value: "Bud (16oz)"},
+                {label: "Bud - 24oz", value: "Bud (24oz)"},
+                {label: "House Margarita", value: "House Margarita"},
+                {label: "Cadillac Margarita", value: "Cadillac Margarita"},
+                {label: "Jack/Coke - Short", value: "Jack/Coke (Short)"},
+                {label: "Jack/Coke - Tall", value: "Jack/Coke (Tall)"},
+                {label: "Whiskey Sour - Short", value: "Whiskey Sour (Short)"},
+                {label: "Whiskey Sour - Tall", value: "Whiskey Sour (Tall)"},
+                {label: "Tequila - Shot", value: "Tequila (Shot)"},
+                {label: "Rum - Shot", value: "Rum (Shot)"}
+            ]
+        }
     },
     amount: {
         type: Number,

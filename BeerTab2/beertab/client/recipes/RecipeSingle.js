@@ -6,6 +6,7 @@ Template.RecipeSingle.onCreated(function() {
     });
 });
 
+
 Template.RecipeSingle.helpers({
     recipe: ()=> {
         var id = FlowRouter.getParam('id');
