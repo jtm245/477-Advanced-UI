@@ -5,7 +5,7 @@
         <h3>Table #: {{table}}</h3><h4> Ticket#: {{_id}}</h4><i>Ordered At: {{createdAt}}</i>
         <p>
             {{#each Drinks}}
-            <span class="ingredient">{{name}} - {{amount}} - {{cost}}</span>
+            <span class="ingredient">{{name}} - {{amount}} - {{cost}}  -  {{table}}</span>
             {{/each}}
         </p>
         Total: {{cost}}
