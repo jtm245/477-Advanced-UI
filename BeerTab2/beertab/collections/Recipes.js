@@ -12,7 +12,7 @@ Ingredient = new SimpleSchema({
         label: "Drink Order:",
         allowedValues: ["Bud (16oz)","Bud (24oz)","House Margarita","Cadillac Margarita",
                         "Jack/Coke (Short)","Jack/Coke (Tall)","Whiskey Sour (Short)",
-                        "Whiskey Sour (Tall)","Tequila (Shot)","Rum (Shot)"],
+                        "Whiskey Sour (Tall)","Tequila (Shot)","Rum (Shot)", "Vodka (shot)"],
         autoform: {
             options: [
                 {label: "Bud - 16oz", value: "Bud (16oz)"},
@@ -25,6 +25,7 @@ Ingredient = new SimpleSchema({
                 {label: "Whiskey Sour - Tall", value: "Whiskey Sour (Tall)"},
                 {label: "Tequila - Shot", value: "Tequila (Shot)"},
                 {label: "Rum - Shot", value: "Rum (Shot)"}
+				{label: "Vodka - Shot", value: "Vodka (Shot)"}
             ]
         }
     },
