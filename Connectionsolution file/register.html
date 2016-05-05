@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS 212 - Project 9 - Registration Form</title>
+        <style type ="text/css">
+            
+            form {margin: 10px;
+                    padding: 0;}
+            .field {padding-top: 5px;}
+            label {font-weight: bold; float: left; width: 20%;
+                   margin-right: 1em; text-align: right;}
+            #submit {margin-left: 35%; padding-top: 1em;}
+            
+        </style>
+        
+        <script type="text/javascript">
+            var uidchk = false;
+
+            /*
+             * checkEmpty
+             * 
+             * This function expects to be called by the onblur attribute of a
+             * field: onblur="checkEmpty(fieldname)" where fieldname is the id
+             * attribute of the field.
+             */
+            function checkEmpty(fieldname)
+            {
+                if (!uidchk)
+                {
+                    var this_ele=document.getElementById(fieldname);
+                    if (!this_ele.value)
+                    {
+                        window.alert("The field cannot be empty");
+                        this_ele=document.getElementById(fieldname);
+                        this_ele.focus();
+                    }
+                }
+            };
+
+            /*
+             * existsUserid
+             * 
+             * This function expects to be called by the onblur attribute of 
+             * the userid field and will first check to see if the field is
+             * empty.  If not, it will send an asynchronous request to the
+             * server to see if the requested userid is already in use.
+             */
+            function existsUserid(fieldname)
+            {
+                uidchk = true;
+                var this_ele=document.getElementById(fieldname);
+                if (!this_ele.value)
+                {
+                    window.alert("The field cannot be empty");
+                    this_ele=document.getElementById(fieldname);
+                    this_ele.focus();
+                }
+                else
+                {
+                    var xmlhttp;
+                    if (window.XMLHttpRequest)
+                    {   // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp=new XMLHttpRequest();
+                    }
+                    else
+                    {   // code for IE6, IE5
+                        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    
+                    /*
+                     * anonymous function to deal with the AJAX response
+                     * 
+                     * This function catches the response event and deals with it.
+                     */
+                    xmlhttp.onreadystatechange = function ()
+                    {
+                        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                        {
+                            var this_ele=document.getElementById('userid');
+                            // see what we got back
+                            //window.alert(xmlhttp.responseText.indexOf("FALSE"));
+                            if (xmlhttp.responseText.indexOf("FALSE") >= 0)
+                            {
+                                window.alert("That userid is already in use.");
+                                this_ele.focus();
+                            }
+                            uidchk = false;
+                        }
+                    }
+                    
+                    // request is open, lets do it.
+                    xmlhttp.open("POST","useridQuery.php",true);
+                    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    var msgstr = "uname=" + encodeURIComponent(this_ele.value);
+                    msgstr = msgstr.replace(/%20/g, '+');
+                    //xmlhttp.send("uname=".concat(this_ele.value));
+                    xmlhttp.send(msgstr);
+                }
+            };
+        </script>
+    </head>
+    
+    <body>
+        <form method="POST" action="regValidator.php">
+            <h3> Register </h3><br>
+            <div class='fname'>
+                <label for='fname'>Your First Name</label>
+                <input type='text' name='fname' id='fname'
+                            size='40' maxlength='15' onblur='checkEmpty(this.id)'/>
+            </div>
+            <div class='lname'>
+                <label for='lname'>Your Last Name</label>
+                <input type='text' name='lname' id='lname'
+                            size='40' maxlength='20' onblur='checkEmpty(this.id)' />
+            </div>
+            <div class='email'>
+                <label for='email'>Your Email Address</label>
+                <input type='text' name='email' id='email'
+                            size='60' maxlength='40' onblur='checkEmpty(this.id)' />
+            </div>
+            <div class='userid'>
+                <label for='userid'>What UserID would you like?</label>
+                <input type='text' name='userid' id='userid'
+                            size='20' maxlength='8' onblur='existsUserid(this.id)' />
+            </div>
+            
+            <div class='password'>
+                <label for='password'>Enter a password</label>
+                <input type='password' name='password' id='password'
+                            size='20' maxlength='12' onblur='checkEmpty(this.id)' />
+            </div>
+            
+            <div class='password2'>
+                <label for='password2'>Reenter password for verification</label>
+                <input type='password' name='password2' id='password2'
+                            size='20' maxlength='12' onblur='checkEmpty(this.id)' />
+            </div>
+            
+            <div id='submit'>
+                 <input type='submit' value='Register'>
+            </div>            
+        </form>
+    </body>
+</html>
