@@ -27,7 +27,7 @@ Ingredient = new SimpleSchema({
                 {label: "Whiskey Sour - Short", value: "Whiskey Sour (Short)"},
                 {label: "Whiskey Sour - Tall", value: "Whiskey Sour (Tall)"},
                 {label: "Tequila - Shot", value: "Tequila (Shot)"},
-                {label: "Rum - Shot", value: "Rum (Shot)"}
+                {label: "Rum - Shot", value: "Rum (Shot)"},
 				{label: "Vodka - Shot", value: "Vodka (Shot)"}
             ]
         }

@@ -8,9 +8,10 @@
             <span class="ingredient">{{name}} - {{amount}} - ${{cost}}</span>
             {{/each}}
         </p>
-        Total: {{cost}}
-        <a href="/recipe/{{_id}}">Order Details</a> 
-        <button class="btn-primary toggle-menu">Add To Menu</button>
-        <button class="btn-primary toggle-menu">Remove</button>
+        <b>Total: {{cost}}</b>
+        <br>
+        <!-- <a href="/recipe/{{_id}}">Order Details</a> --> 
+        <button class="btn-primary toggle-menu">Ready</button>
+        <button class="btn-primary toggle-menu">Close Out</button>
     </article>
 </template>
