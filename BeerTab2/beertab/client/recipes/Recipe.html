@@ -1,14 +1,16 @@
 <template name="Recipe">
-    <article class="recipe">
+    <article class="recipe {{#if inMenu}}in-menu{{/if}}">
         <h3>{{name}}</h3>
         
         <h3>Table #: {{table}}</h3><h4> Ticket#: {{_id}}</h4><i>Ordered At: {{createdAt}}</i>
         <p>
             {{#each Drinks}}
-            <span class="ingredient">{{name}} - {{amount}} - {{cost}}  -  {{table}}</span>
+            <span class="ingredient">{{name}} - {{amount}} - ${{cost}}</span>
             {{/each}}
         </p>
         Total: {{cost}}
         <a href="/recipe/{{_id}}">Order Details</a> 
+        <button class="btn-primary toggle-menu">Add To Menu</button>
+        <button class="btn-primary toggle-menu">Remove</button>
     </article>
 </template>
