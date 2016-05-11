@@ -1,0 +1,10 @@
+# TODO
+# This is a list of what we would like to complete in the future
+# essintially just a task list
+# We would like to fix the different problems addressed in each expert review
+# While also adding new features for bars
+# 1. Register and pick venueue
+# 2. Easily change menues
+# 3. Allow the bartenders to complete specific drinks inside of an order instead of a complete order at a time
+# 4. Include a more percise status of the drink e.g. recieved, working on it, and complete
+# 5. Have a clearer way to say if an order is for pick up or drop off. 
